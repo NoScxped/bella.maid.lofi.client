@@ -1,0 +1,35 @@
+*   {
+background-repeat: repeat;
+font-family: 'Roboto Mono', monospace;
+margin: 0;
+animation: comein 1s;
+
+}
+@keyframes comein {
+    0% { opacity: .50;}
+    50% { opacity: 75;}
+    100% { opacity: 100;}
+    }
+.holder{
+    border-radius: 8px;
+    background-color: #141414;
+    padding: 5px;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    margin: 1%;
+    width: 25%;
+    height: 12%;
+}
+#name {
+    color: rgba(255,255,255, 0.8);
+    font-size: 15;
+    margin: 3%;
+    letter-spacing: 2.75px;
+}
+#author {
+    color:#404040;
+    font-size: 12;
+    margin: 3%;
+    letter-spacing: 2.75px;
+}
