@@ -1,3 +1,9 @@
+var songId;
+var sampleRate;
+var channel;
+var bytelength;
+const buffer = new ArrayBuffer(20400);
+var data;
 function updateNp(){
 
     var https = new XMLHttpRequest();
@@ -13,6 +19,7 @@ function updateNp(){
            sampleRate = obj.SampleRate
            channel = obj.ChannelCount
            bytelength = obj.FileSize
+            //i dont even wanna hear it this part works fine
 
         }
     };
@@ -22,3 +29,32 @@ function updateNp(){
 
 }
 updateNp()
+//broken shit under here
+function play(){
+let context;
+let request;
+let source;
+
+    try
+ {
+  context = new AudioContext();
+  request = new XMLHttpRequest();
+  request.open("POST","https://izolabella.dev:21621/_p",true);
+  request.responseType = "arraybuffer";
+
+  request.onload = function() {
+    context.decodeAudioData(request.response, function(buffer) {
+      source = context.createBufferSource();
+      source.buffer = buffer;
+      source.connect(context.destination);
+
+      source.start(0); 
+    });
+  };
+
+  request.send(`{"b": 109000, "s": 0}`);
+
+} catch(e) {
+  alert('brokn');
+}
+}
