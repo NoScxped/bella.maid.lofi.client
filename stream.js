@@ -2,7 +2,6 @@ var songId;
 var sampleRate;
 var channel;
 var bytelength;
-const buffer = new ArrayBuffer(20400);
 var data;
 function updateNp(){
 
